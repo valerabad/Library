@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Library.Models.Book>
+@{
+    // default using master page for header and footer for all pages (shared/_Layout.cshtml)
+    // used Razor for Views
+    ViewBag.Title = "Library";
+}
+
+<h1>Library</h1>  
+
+    <p>       
+        @Html.ActionLink("Add new book", "AddBook")        
+    </p>
+    <table>
+        <tr>
+            <th>№</th>            
+            <th>Book title</th>
+            <th>Authors</th>
+            <th>Quantity</th>
+            <th>Available</th>
+        </tr>
+        @using (Html.BeginForm("Index", "Home"))
+            {
+                int i = 0;
+                foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @*book number*@
+                        @Html.Label(Convert.ToString(++i))
+                    </td>
+                    
+                    <td>
+                        @*book title*@
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @*reference to Authors list*@
+                        @Html.ActionLink("List of authors", "ShowAuthorsByBookID", new { id = item.Book_Id })
+                    </td>
+
+                    <td>
+                        @*quantity books*@
+                        @Html.DisplayFor(modelItem => item.quantity)
+                    </td>
+                    <td>
+                        @*is_avaliable*@
+                        @Html.DisplayFor(modelItem => item.is_avaliable)
+                    </td>
+                    <td>
+                        @*Reference to edit page*@
+                        @Html.ActionLink("Change", "ChangeQuantity", new { id = item.Book_Id })                        
+                    </td>
+                    <td>
+                        @*Delete*@
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Book_Id })
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+    
+    <p>       
+        @Html.ActionLink("Add new book", "AddBook")
+    </p>
+    <p>
+        @Html.ActionLink("Sorting by title", "SortingByTitle")
+    </p>  
+    <p>     
+        @Html.ActionLink("Sorting by count", "SortingByCount")
+    </p>    
+
+    <div class="row">
+    </div>

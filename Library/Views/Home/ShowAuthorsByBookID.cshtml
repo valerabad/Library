@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Library.Models.Author>
+@{
+    // default using master page for header and footer for all pages (shared/_Layout.cshtml)
+    // used Razor for Views
+    ViewBag.Title = "ShowAuthorsByBookID";
+}
+
+<h2>Book by written:</h2>
+@using (Html.BeginForm("Index", "Home"))
+{
+
+    int i = 0;
+    foreach (var item in Model)
+    {
+        <div class="editor-label">
+            @Html.DisplayFor(modelItem => item.Name)
+        </div>        
+    }
+    
+}
+

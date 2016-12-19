@@ -1,0 +1,31 @@
+﻿@model Library.Models.Book
+@{
+    // default using master page for header and footer for all pages (shared/_Layout.cshtml)
+    // used Razor for Views
+    ViewBag.Title = "ChangeQuantity";
+}
+ <h2>Change quantity</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Book</legend>
+        @*скрытое поле, которое идентифицирует пользователя, которого мы редактируем*@
+        @Html.HiddenFor(model => model.Book_Id)
+              
+        <div class="editor-label">
+            @Html.Label("Count books (Please enter number)")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.quantity)
+            @Html.ValidationMessage("Error")
+        </div>
+
+        <p>
+            <input type="submit" value="Save changes" />
+        </p>
+    </fieldset>
+}

@@ -1,0 +1,43 @@
+﻿@model Library.Models.Book
+@{    
+    // default using master page for header and footer for all pages (shared/_Layout.cshtml)
+    // used Razor for Views
+    ViewBag.Title = "Delete book";
+}
+
+<h2>Вы удаляете следующий профиль:</h2>
+
+<fieldset>
+    <legend>Информация</legend>
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Информация</legend>                
+
+        <div class="display-label">
+            @Html.DisplayName("Title")
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Title)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayName("Count")
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.quantity)
+        </div>
+        
+
+        <p>
+            <input type="submit" value="Delete selected book" />
+        </p>
+        
+    </fieldset>
+}
+@using (Html.BeginForm())
+{    
+    <p>
+        <input type="submit" value="Удалить" />
+    </p>
+}
