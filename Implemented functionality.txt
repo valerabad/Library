@@ -1,0 +1,16 @@
+1. Created database with all tables and all relations (see class diagram.png)
+2. Created connection to database using (localdb)\MSSQLLocalDB (LibraryDB.mdf was included in project folder)
+3. Created models.
+4. Show books in grid; add, delete book, changing count books.
+5. Sorting book by quantity and title
+6. Show all authors for selected book.
+
+Technology that I used:
+.net Framework 4.5
+VS 2015
+MS SQL SERVER
+LINQ to SQL
+MVC
+razor
+html
+sql
